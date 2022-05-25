@@ -10,10 +10,11 @@ from agrr import ignite_utils
 from agrr.models import BertAgrrModel
 from agrr.scripts.agrr_metrics import read_df, gapping_metrics
 
-from pytorch_pretrained_bert.modeling import BertForSequenceClassification
-from pytorch_pretrained_bert.modeling import BertForTokenClassification
-from pytorch_pretrained_bert.optimization import BertAdam
-from pytorch_pretrained_bert.file_utils import PYTORCH_PRETRAINED_BERT_CACHE
+from transformers.models.bert.modeling_bert import BertForSequenceClassification
+from transformers.models.bert.modeling_bert import BertForTokenClassification
+#from transformers.optimization import AdamW
+from torch.optim import AdamW
+from transformers.file_utils import PYTORCH_PRETRAINED_BERT_CACHE
 
 from ignite import engine, utils, metrics, handlers, contrib
 
@@ -22,7 +23,7 @@ from collections import defaultdict
 
 def load_config(filename):
     with open(filename, "r") as f:
-        conf = yaml.load(f)
+        conf = yaml.safe_load(f)
     return conf
 
 
@@ -122,7 +123,7 @@ def get_optimizer(conf, model):
             'weight_decay': 0.0
         }
     ]
-    optimizer = BertAdam(
+    optimizer = AdamW(
         optimizer_grouped_parameters,
         lr=conf["learning_rate"]
     )

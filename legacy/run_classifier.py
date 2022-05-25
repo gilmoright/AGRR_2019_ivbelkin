@@ -40,7 +40,8 @@ from sklearn import metrics
 
 from pytorch_pretrained_bert.tokenization import BertTokenizer
 from pytorch_pretrained_bert.modeling import BertForSequenceClassification
-from pytorch_pretrained_bert.optimization import BertAdam
+#from pytorch_pretrained_bert.optimization import AdamW
+from torch.optim import AdamW
 from pytorch_pretrained_bert.file_utils import PYTORCH_PRETRAINED_BERT_CACHE
 
 logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
@@ -545,7 +546,7 @@ def main():
             optimizer = FP16_Optimizer(optimizer, static_loss_scale=args.loss_scale)
 
     else:
-        optimizer = BertAdam(optimizer_grouped_parameters,
+        optimizer = AdamW(optimizer_grouped_parameters,
                              lr=args.learning_rate)
 
     global_step = 0

@@ -1,0 +1,3 @@
+botocore
+#timm~=0.3.2
+pytorch-ignite

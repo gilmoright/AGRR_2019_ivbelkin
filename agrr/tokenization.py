@@ -23,7 +23,7 @@ import unicodedata
 import os
 import logging
 
-from pytorch_pretrained_bert.file_utils import cached_path
+from transformers.file_utils import cached_path
 
 logger = logging.getLogger(__name__)
 

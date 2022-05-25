@@ -4,10 +4,10 @@ from torch import nn
 import torch.nn.functional as F
 from torch.autograd import Variable
 
-from pytorch_pretrained_bert.modeling import PreTrainedBertModel, BertModel
+from transformers.models.bert.modeling_bert import BertPreTrainedModel, BertModel
 
 
-class BertAgrrModel(PreTrainedBertModel):
+class BertAgrrModel(BertPreTrainedModel):
 
     def __init__(self, config):
         super(BertAgrrModel, self).__init__(config)
@@ -17,14 +17,17 @@ class BertAgrrModel(PreTrainedBertModel):
         self.sentence_classifier = nn.Linear(config.hidden_size, 2)
         self.full_annotation_classifier = nn.Linear(config.hidden_size, 6)
 
-        self.apply(self.init_bert_weights)
+        #self.apply(self.init_bert_weights)
+        # это ведь эквивалент? или нет
+        self.post_init()
 
     def forward(self, input_ids, attention_mask, token_type_ids=None, 
                 labels=None, gaps=None, tags=None):
+        outputs = \
+            self.bert(input_ids, token_type_ids, attention_mask, output_hidden_states =False)
+        #sequence_output, pooled_output = outputs
         sequence_output, pooled_output = \
-            self.bert(input_ids, token_type_ids, attention_mask, output_all_encoded_layers=False)
-        sequence_output, pooled_output = \
-            self.dropout(sequence_output), self.dropout(pooled_output)
+            self.dropout(outputs[0]), self.dropout(outputs[1])
         sentence_logits = self.sentence_classifier(pooled_output)
         full_annotation_logits = self.full_annotation_classifier(sequence_output)
 
