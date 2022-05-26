@@ -1,11 +1,11 @@
-input_dir: ~/AGRR_2019/orgs
+input_dir: ~/AGRR_2019_ivbelkin/orgs
 data_dir: data
 
 seed: 42
 n_folds: 5
 
 task_name: agrr
-bert_model: bert-base-multilingual-cased
+bert_model: /s/ls4/users/grartem/HuggingFace/models/rubert-tiny2
 output_dir: output
 validation_interval: 50
 

@@ -3,7 +3,7 @@ data_dir: data/fold-2
 seed: 42
 
 task_name: agrr
-bert_model: bert-base-multilingual-cased
+bert_model: /s/ls4/users/grartem/HuggingFace/models/rubert-tiny2
 output_dir: output/fold-2
 validation_interval: 50
 

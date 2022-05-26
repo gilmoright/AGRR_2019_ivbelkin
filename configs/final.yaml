@@ -3,7 +3,7 @@ data_dir: data
 seed: 42
 
 task_name: agrr
-bert_model: bert-base-multilingual-cased
+bert_model: /s/ls4/users/grartem/HuggingFace/models/rubert-tiny2
 output_dir: output/final
 validation_interval: 300
 
