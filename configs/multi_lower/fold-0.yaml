@@ -1,10 +1,10 @@
-data_dir: data/fold-4
+data_dir: data_lower/fold-0
 
 seed: 42
 
 task_name: agrr
 bert_model: /s/ls4/users/grartem/HuggingFace/models/bert-base-multilingual-cased
-output_dir: output_bertmult/fold-4
+output_dir: output/multi_lower/fold-0
 validation_interval: 50
 
 train_file: train.csv

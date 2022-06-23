@@ -1,0 +1,10 @@
+ModelName	Size(MB)	f1	f1_low
+bert-base-multilingual-cased	681	0.90	0.77
+bert-base-ru-cased	370		
+rubert-base-cased	681		0.82
+rubert-base-cased-conversational	681		
+rubert-tiny2	112	0.69	0.40
+rubert-tiny	45.5		
+distilbert-base-ru-cased	208		0.12
+distilrubert-tiny-cased-conversational	409		
+distilrubert-tiny-cased-conversational-v1	39.77		0.11

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J prepare_data
+#SBATCH -J distilconvv1
 #SBATCH -D /s/ls4/users/grartem/Gapping/AGRR_2019_ivbelkin
 #SBATCH -o /s/ls4/users/grartem/Gapping/AGRR_2019_ivbelkin/logs/%x_%j.out
 #SBATCH -e /s/ls4/users/grartem/Gapping/AGRR_2019_ivbelkin/logs/%x_%j.err

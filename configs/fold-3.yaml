@@ -3,8 +3,8 @@ data_dir: data/fold-3
 seed: 42
 
 task_name: agrr
-bert_model: /s/ls4/users/grartem/HuggingFace/models/rubert-tiny2
-output_dir: output/fold-3
+bert_model: /s/ls4/users/grartem/HuggingFace/models/bert-base-multilingual-cased
+output_dir: output_bertmult/fold-3
 validation_interval: 50
 
 train_file: train.csv

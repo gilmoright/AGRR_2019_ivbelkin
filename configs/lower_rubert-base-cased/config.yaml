@@ -1,18 +1,22 @@
-data_dir: data/fold-4
+input_dir: ~/AGRR_2019_ivbelkin/orgs
+data_dir: data_lower
 
 seed: 42
+n_folds: 5
 
 task_name: agrr
-bert_model: /s/ls4/users/grartem/HuggingFace/models/bert-base-multilingual-cased
-output_dir: output_bertmult/fold-4
+bert_model: /s/ls4/users/grartem/HuggingFace/models/rubert-base-cased
+output_dir: output/lower_rubert-base-cased
 validation_interval: 50
 
 train_file: train.csv
 train_batch_size: 32
 accumulation_iters: 1
 
-dev_file: valid.csv
+dev_file: dev.csv
 dev_batch_size: 32
+
+n_validation_iters: 50
 
 max_seq_length: 128
 do_lower_case: False
